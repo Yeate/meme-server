@@ -1,0 +1,27 @@
+{
+    "name": "pokeface/meme-server",
+    "description": "meme-server",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pokeface",
+            "email": "ye3245@sina.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Pokeface\\MemeServer\\":"src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pokeface\\MemeServer\\MemeServerServiceProvider"
+            ],
+            "aliases": {
+                "MemeServer": "Pokeface\\MemeServer\\Facades\\MemeServerFacade"
+            }
+        }
+    }
+}
