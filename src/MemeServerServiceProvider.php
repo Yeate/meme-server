@@ -21,9 +21,17 @@ class MemeServerServiceProvider extends ServiceProvider
             __DIR__.'/config/memeserver.php' => config_path('memeserver.php'), 
         ]);
         $this->registerRoutes();
+        if (! class_exists('CreateMemesTables')) {
+            $timestamp = date('Y_m_d_His', time());
+            $this->publishes([
+                __DIR__.'/database/migrations/create_memes_table.php.stub' => $this->app->databasePath()."/migrations/{$timestamp}_create_memes_table.php",
+            ], 'migrations');
+        }
 
 
     }
+
+
 
      
     protected function registerRoutes()

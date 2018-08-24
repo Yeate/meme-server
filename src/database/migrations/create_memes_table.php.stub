@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateMemesTables extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $tableNames = config('memeserver.table_names');
+
+        Schema::create($tableNames['memes'], function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('tags');
+            $table->string('path');
+            $table->string('path_md5')->index();
+            $table->string('md5')->index();
+            $table->timestamps();
+        });
+
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        $tableNames = config('permission.table_names');
+
+        Schema::drop($tableNames['memes']);
+
+    }
+}

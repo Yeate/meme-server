@@ -8,7 +8,9 @@
             "email": "ye3245@sina.com"
         }
     ],
-    "require": {},
+    "require": {
+        "netease/nos-php-sdk": "1.0.1"
+    },
     "autoload": {
         "psr-4": {
             "Pokeface\\MemeServer\\":"src/"
